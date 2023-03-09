@@ -18,6 +18,7 @@ pageextension 50120 "PCO Sales Order" extends "Sales Order"
         FillReqDateWithCurrentDateLbl: Label 'FillRequestedDeliveryDateWithCurrentDate', Locked = true;
         UseWorkDateLbl: Label 'Use Workdate';
         UseCurrentDateLbl: Label 'Use Current Date';
+        MissingReqDeliveryDateLbl: Label 'Missing Requested Delivery Date';
         ReqDeliveryDateErrorInfo: ErrorInfo;
     begin
         case true of
@@ -26,12 +27,14 @@ pageextension 50120 "PCO Sales Order" extends "Sales Order"
                 exit;
         end;
 
-        //Define the error
+        // Define the error
         ReqDeliveryDateErrorInfo := ErrorInfo.Create(MissingValueErr);
+        ReqDeliveryDateErrorInfo.Title := MissingReqDeliveryDateLbl;
         ReqDeliveryDateErrorInfo.AddAction(UseWorkDateLbl, Codeunit::"PCO Sales Order Errors", FillReqDateWithWorkDateLbl); // Add action for workdate
         ReqDeliveryDateErrorInfo.AddAction(UseCurrentDateLbl, Codeunit::"PCO Sales Order Errors", FillReqDateWithCurrentDateLbl); // Add action for current date
         ReqDeliveryDateErrorInfo.RecordId := Rec.RecordId(); //Add record ID
 
+        // Throw the error
         Error(ReqDeliveryDateErrorInfo);
     end;
 }
