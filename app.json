@@ -1,0 +1,32 @@
+{
+  "id": "79bb935e-02b3-4f5b-ac8b-ec9914be050a",
+  "name": "Customizable Errors Demo",
+  "publisher": "Red Rabbit",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "Small demo project to show customizable error messages that are available as of BC22 (2023 RW1)",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "22.0.0.0",
+  "application": "22.0.0.0",
+  "idRanges": [
+    {
+      "from": 50120,
+      "to": 50125
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "11.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
