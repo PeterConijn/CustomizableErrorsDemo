@@ -1,21 +1,21 @@
 codeunit 50120 "PCO Sales Order Errors"
 {
-    procedure FillRequestedDeliveryDateWithWorkDate(ErrorInfo: ErrorInfo)
+    procedure FillRequestedDeliveryDateWithWorkDate(ThrownErrorInfo: ErrorInfo)
     begin
-        FillRequestDate(ErrorInfo, WorkDate());
+        FillRequestDate(ThrownErrorInfo, WorkDate());
     end;
 
-    procedure FillRequestedDeliveryDateWithCurrentDate(ErrorInfo: ErrorInfo)
+    procedure FillRequestedDeliveryDateWithCurrentDate(ThrownErrorInfo: ErrorInfo)
     begin
-        FillRequestDate(ErrorInfo, Today());
+        FillRequestDate(ThrownErrorInfo, Today());
     end;
 
-    local procedure FillRequestDate(ErrorInfo: ErrorInfo; RequestDateValue: Date)
+    local procedure FillRequestDate(ThrownErrorInfo: ErrorInfo; RequestDateValue: Date)
     var
         SalesHeader: Record "Sales Header";
         SalesHeaderRecordRef: RecordRef;
     begin
-        SalesHeaderRecordRef.Get(ErrorInfo.RecordId());
+        SalesHeaderRecordRef.Get(ThrownErrorInfo.RecordId());
         SalesHeaderRecordRef.SetTable(SalesHeader);
 
         SalesHeader.Validate("Requested Delivery Date", RequestDateValue);
