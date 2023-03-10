@@ -32,7 +32,7 @@ pageextension 50120 "PCO Sales Order" extends "Sales Order"
         ReqDeliveryDateErrorInfo := ErrorInfo.Create(MissingValueErr);
         ReqDeliveryDateErrorInfo.Title := MissingReqDeliveryDateLbl;
 
-        // Add action for workdate
+        // Add actions to error message
         ReqDeliveryDateErrorInfo.AddAction(UseWorkDateLbl, Codeunit::"PCO Sales Order Errors", FillReqDateWithWorkDateLbl);
         ReqDeliveryDateErrorInfo.AddAction(UseCurrentDateLbl, Codeunit::"PCO Sales Order Errors", FillReqDateWithCurrentDateLbl);
 
