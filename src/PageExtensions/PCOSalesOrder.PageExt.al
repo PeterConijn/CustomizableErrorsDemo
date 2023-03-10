@@ -14,13 +14,13 @@ pageextension 50120 "PCO Sales Order" extends "Sales Order"
 
     local procedure CheckRequestedDeliveryDate()
     var
-        MissingValueErr: Label 'Requested delivery date requires a value.';
-        FillReqDateWithWorkDateLbl: Label 'FillRequestedDeliveryDateWithWorkDate', Locked = true;
-        FillReqDateWithCurrentDateLbl: Label 'FillRequestedDeliveryDateWithCurrentDate', Locked = true;
-        UseWorkDateLbl: Label 'Use Workdate';
-        UseCurrentDateLbl: Label 'Use Current Date';
-        MissingReqDeliveryDateLbl: Label 'Missing Requested Delivery Date';
         ReqDeliveryDateErrorInfo: ErrorInfo;
+        FillReqDateWithCurrentDateLbl: Label 'FillRequestedDeliveryDateWithCurrentDate', Locked = true;
+        FillReqDateWithWorkDateLbl: Label 'FillRequestedDeliveryDateWithWorkDate', Locked = true;
+        MissingReqDeliveryDateLbl: Label 'Missing Requested Delivery Date';
+        MissingValueErr: Label 'Requested delivery date requires a value.';
+        UseCurrentDateLbl: Label 'Use Current Date';
+        UseWorkDateLbl: Label 'Use Workdate';
     begin
         case true of
             Rec.Status = Enum::"Sales Document Status"::Released,

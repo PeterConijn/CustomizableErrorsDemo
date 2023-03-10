@@ -13,9 +13,9 @@ pageextension 50121 "PCO Sales Order List" extends "Sales Order List"
 
     local procedure CheckRequestedDeliveryDate()
     var
-        MissingValueErr: Label 'Requested delivery date requires a value.';
-        MissingReqDeliveryDateLbl: Label 'Missing Requested Delivery Date';
         ReqDeliveryDateErrorInfo: ErrorInfo;
+        MissingReqDeliveryDateLbl: Label 'Missing Requested Delivery Date';
+        MissingValueErr: Label 'Requested delivery date requires a value.';
     begin
         case true of
             Rec.Status = Enum::"Sales Document Status"::Released,
