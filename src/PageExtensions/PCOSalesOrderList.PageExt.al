@@ -30,7 +30,7 @@ pageextension 50121 "PCO Sales Order List" extends "Sales Order List"
         // Add actions to error message
         ReqDeliveryDateErrorInfo.AddNavigationAction();
 
-        // Add record ID since we will need that for our actions
+        // Add record ID we want to navigate to
         ReqDeliveryDateErrorInfo.RecordId := Rec.RecordId();
 
         // Throw the error
